@@ -6,8 +6,7 @@ The `Show Streams` command in the MongoDB extension aims to display stream graph
 
 # Why mermaid?
 
-I was initially intending on doing react-flow but considering the time it takes to learn react, then react-flow then getting the browser app into VSCode I decided I didn’t have enough time. 
-After looking at some of the other suggested plugins, mermaid by far had the easiest learning curve and it also had a ‘Markdown Preview’ extension that allowed you to see your graphs in VSCode without needing a WebView
+After looking at various of the other suggested plugins, mermaid by far had the easiest learning curve and it also had a ‘Markdown Preview’ extension that allowed you to see your graphs in VSCode without needing a WebView
 However, it should be noted that mermaid is not as interactive as some other plugins like react-flow.
 
 In order to use `mermaid` you may need to:
