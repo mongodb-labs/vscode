@@ -16,7 +16,7 @@ This should add `mermaid` into in `packages.json` file.
 
 # Work still needed
 
-Note that this extension command was not fully finished as at the time of implementation, it was not possible to connect the extension command input to the 
+Note that this extension command was not fully finished as at the time of implementation, it was not possible to connect the extension command input to the
 output in the shell. Some pseudo code has been written for when the backend for the streams dependencies is fixed:
 
 ```
@@ -30,9 +30,10 @@ dataService.command('admin', { listStreams: 1, dependencies: true }, (streams) =
 ```
 
 Currently the input is a static variable called `nodeParent`. The format of the input should be as below.
+
 ```
 // Note: streamA is the root so its parent is an empty string
-// The general structure is: 
+// The general structure is:
 // {streamName: {'parent': parentNodeName, 'status': status}}
 {
 'streamA': { 'parent': '', 'status': 'RUNNING' },
@@ -45,4 +46,3 @@ Currently the input is a static variable called `nodeParent`. The format of the 
 
 The code below accepts output from the shell and formats it as necessary for the extension command:
 [graphInfo.txt](https://github.com/mongodb-labs/vscode/files/10739601/graphInfo.txt)
-
