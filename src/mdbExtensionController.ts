@@ -321,13 +321,13 @@ export default class MDBExtensionController implements vscode.Disposable {
       // eslint-disable-next-line @typescript-eslint/require-await
       async (): Promise<boolean> => {
         // if the backend worked this is how you would do it (roughly)
-          // const dataService = this._connectionController.getActiveDataService();
-          // if (dataService === null) {
-          //   alert();
-          //   return false;
-          // }
-          // let nodeParent;
-          // dataService.command('admin', { listStreams: 1, dependencies: true }, (streams) => {})
+        // const dataService = this._connectionController.getActiveDataService();
+        // if (dataService === null) {
+        //   alert();
+        //   return false;
+        // }
+        // let nodeParent;
+        // dataService.command('admin', { listStreams: 1, dependencies: true }, (streams) => {})
         const panel = vscode.window.createWebviewPanel(
           'Mermaid Graph',
           'Show Streams',
@@ -340,22 +340,23 @@ export default class MDBExtensionController implements vscode.Disposable {
         mermaid.initialize({ startOnLoad: true });
         let content = 'graph TD\n';
         const nodeParent = {
-        'streamA': { 'parent': '', 'status': 'RUNNING' },
-        'streamB': { 'parent': 'streamA', 'status': 'RUNNING' },
-        'streamC': { 'parent': 'streamA', 'status': 'STOPPED' },
-        'streamD': { 'parent': 'streamB', 'status': 'STOPPED' },
-        'streamE': { 'parent': 'streamB', 'status': 'RUNNING' },
-        'streamF': { 'parent': 'streamB', 'status': 'RUNNING' },
-        'streamG': { 'parent': 'streamB', 'status': 'RUNNING' },
-        'streamH': { 'parent': 'streamB', 'status': 'RUNNING' },
-        'streamI': { 'parent': 'streamB', 'status': 'RUNNING' },
+          'streamA': { 'parent': '', 'status': 'RUNNING' },
+          'streamB': { 'parent': 'streamA', 'status': 'RUNNING' },
+          'streamC': { 'parent': 'streamA', 'status': 'STOPPED' },
+          'streamD': { 'parent': 'streamB', 'status': 'STOPPED' },
+          'streamE': { 'parent': 'streamB', 'status': 'RUNNING' },
+          'streamF': { 'parent': 'streamB', 'status': 'RUNNING' },
+          'streamG': { 'parent': 'streamB', 'status': 'RUNNING' },
+          'streamH': { 'parent': 'streamB', 'status': 'RUNNING' },
+          'streamI': { 'parent': 'streamB', 'status': 'RUNNING' },
         };
 
         for (const node in nodeParent) {
-        if (nodeParent[node].parent !== '') {
-        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-        content += (nodeParent[node].parent + '(' + nodeParent[node].parent + ' : ' + nodeParent [nodeParent[node].parent].status + ') -->' + node + '(' + node + ' : ' + nodeParent[node].status + ')' + '\n');
-        }}
+          if (nodeParent[node].parent !== '') {
+            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+            content += (nodeParent[node].parent + '(' + nodeParent[node].parent + ' : ' + nodeParent[nodeParent[node].parent].status + ') -->' + node + '(' + node + ' : ' + nodeParent[node].status + ')' + '\n');
+          }
+        }
 
         panel.webview.html = `<!DOCTYPE html>
         <html lang="en">
